@@ -11,6 +11,7 @@ public interface UserService {
     public User showUserById(String userId);
     public void deleteUser(String userId);
     public void updateUser(String userId, User user) throws ResourceNotFoundException;
+    public User findByUserName(String userName);
 }
 
 

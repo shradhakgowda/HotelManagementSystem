@@ -16,8 +16,11 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="users")
 public class User {
+	
     @Id
     @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "custom-id-generator")
+	@GenericGenerator(name = "custom-id-generator", strategy = "com.crimsonlogic.HotelManagementSystem.util.IdUserGenerator")
     private String userId;
 
     @Column(name = "user_name")
@@ -30,13 +33,16 @@ public class User {
     private String userPassword;
 
     @Column(name = "user_phoneno")
-    private long userPhoneNo;
+    private String userPhoneNo;
 
     @Column(name = "user_idproof")
     private String userIDProof;
 
     @Column(name = "user_email")
     private String userEmail;
+    
+    
+    
 
 }
 

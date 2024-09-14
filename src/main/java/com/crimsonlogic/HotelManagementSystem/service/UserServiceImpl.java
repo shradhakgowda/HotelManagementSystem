@@ -38,6 +38,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String userId) {
         userRepository.deleteById(userId);
     }
+    @Override
+    public User findByUserName(String userName) {
+        return userRepository.findByUserName(userName);
+    }
 
     @Override
     public void updateUser(String userId, User user) throws ResourceNotFoundException {

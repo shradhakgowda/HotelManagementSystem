@@ -1,22 +1,29 @@
 package com.crimsonlogic.HotelManagementSystem.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.Id;
+import javax.persistence.Column;
+
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
 public class Hotel {
+    
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "custom-id-generator")
+	@GenericGenerator(name = "custom-id-generator", strategy = "com.crimsonlogic.HotelManagementSystem.util.IdHotelGenerator")
     @Column(name = "hotel_id")
     private String hotelId;
 
@@ -29,8 +36,7 @@ public class Hotel {
     @Column(name = "hotel_image")
     private String hotelImage;
 
-    @OneToMany(mappedBy = "hotel")
-    private List<Room> rooms;
+ 
 
 }
 

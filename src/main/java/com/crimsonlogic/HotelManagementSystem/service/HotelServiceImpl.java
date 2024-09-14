@@ -44,4 +44,13 @@ public class HotelServiceImpl implements HotelService {
         existingHotel.setHotelImage(hotel.getHotelImage());
         hotelRepository.save(existingHotel);
     }
+    
+//    @Override
+//    public List<Hotel> findHotelsByLocation(String location) {
+//        return hotelRepository.findByHotelLocation(location);
+    
+    public List<Hotel> getHotelsByLocation(String location) {
+        return hotelRepository.findByHotelLocationIgnoreCaseContaining(location);
+    }
+    
 }
