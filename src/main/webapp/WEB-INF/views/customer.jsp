@@ -8,14 +8,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" href=
+"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>
+Luxe Hotels</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
-		<!-- Footer -->
+<!-- Footer -->
 
-	
-<style >
+
+<style>
 .navbar {
 	background-color: #2eb14c; /* Green background */
 }
@@ -37,6 +40,16 @@
 }
 
 
+
+  body {
+    background-image: url('https://images.pexels.com/photos/1178994/pexels-photo-1178994.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Fix the background image */
+}
+
+
+
 /* Footer CSS */
 .footer {
 	background-color: #ffffff; /* Light grey background */
@@ -51,15 +64,16 @@
 	max-width: 1200px;
 }
 /*display image button*/
-
 .hero-section {
-	background-image: url('https://th.bing.com/th/id/OIP.iCmfeZQEBWJ375hnuo5iaAHaE8?w=287&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7'); /* Replace with your image URL */
+	background-image:
+		url('https://th.bing.com/th/id/OIP.iCmfeZQEBWJ375hnuo5iaAHaE8?w=287&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+	/* Replace with your image URL */
 	background-size: cover;
 	background-position: center;
 	color: #ffffff;
 	text-align: center;
 	padding: 60px 0;
-	height:100%;
+	height: 100%;
 }
 
 .hero-section h1 {
@@ -100,27 +114,44 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
+			<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
+						<span class="sr-only"></span>
 				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/index">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
 				</li>
-					<li class="nav-item"><a class="nav-link"
+
+
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/exploreHotel">Explore
+						Hotels</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/showyourBooking">Your
+						Bookings</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/showyourPayments">Your
+						Payments</a></li>
+				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
+
+
 			</ul>
 		</div>
 	</nav>
-	
-	
+
+
 	<section class="hero-section">
 		<h1>Welcome to Some Hotel</h1>
 		<p>Check out our hotels and enjoy a wonderful stay.</p>
-		<a href="${pageContext.request.contextPath}/exploreHotel/showExploreHotelPage" class="btn btn-primary">Explore Hotels</a>
+		<a
+			href="${pageContext.request.contextPath}/exploreHotel/showExploreHotelPage"
+			class="btn btn-primary">Explore Hotels</a>
 	</section>
-	
-	
-	
-		<!-- Footer -->
+
+
+
+	<!-- Footer -->
 	<footer class="footer">
 		<div class="container">
 			<h3 class="text-center">Customer Reviews</h3>
@@ -173,7 +204,4 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	
-	
-	
 </html>

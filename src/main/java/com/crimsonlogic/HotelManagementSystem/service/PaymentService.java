@@ -11,4 +11,5 @@ public interface PaymentService {
     public Payment showPaymentById(String paymentId);
     public void deletePayment(String paymentId);
     public void updatePayment(String paymentId, Payment payment) throws ResourceNotFoundException;
+    public List<Payment> listAllPaymentsByUserId(String userId);
 }

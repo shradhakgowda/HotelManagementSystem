@@ -30,25 +30,37 @@ public class ExploreHotelController {
 		
         return "exploreHotels";
     }
-    //serach hotel by name
+//    //serach hotel by name
+//    @GetMapping("/searchHotels")
+//    public String  getHotelsByLocation(@RequestParam String location, HttpSession session,Model model) {
+//    	List<Hotel> hotels = hotelService.getHotelsByLocation(location);
+//    	if (hotels.isEmpty()) {
+//    	    hotels = hotelService.listAllHotels();
+//    	}
+//    	System.out.println(hotels);
+//    	session.setAttribute("hotelsInLocation", hotels);
+//    	return "exploreHotels";
+//    }
     @GetMapping("/searchHotels")
-    public String  getHotelsByLocation(@RequestParam String location, HttpSession session,Model model) {
+    public String searchHotels(@RequestParam("location") String location, HttpSession session, Model model) {
         List<Hotel> hotels = hotelService.getHotelsByLocation(location);
-        System.out.println(hotels);
+
+        // If no hotels found for the location, fetch all hotels
+        if (hotels.isEmpty()) {
+            hotels = hotelService.listAllHotels();
+        }
+
+        // Store the list of hotels in the session
         session.setAttribute("hotelsInLocation", hotels);
+
+        // Add the list of hotels to the model
+        model.addAttribute("hotelsInLocation", hotels);
+
         return "exploreHotels";
     }
     
     
-//    //serach hotel by name
-//    @GetMapping("/searchHotels")
-//    public String searchHotels(@RequestParam("location") String location, Model model,HttpSession session) {
-//        List<Hotel> hotelslocation= hotelService.findHotelsByLocation(location);
-//        System.out.println(hotelslocation);
-//        session.setAttribute("hotelslocation", hotelslocation);
-//        model.addAttribute("location", location);
-//        return "exploreHotels";
-//    }
+    
     
     
     

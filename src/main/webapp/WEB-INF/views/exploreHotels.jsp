@@ -8,11 +8,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" href=
+"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>
+Luxe Hotels</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
 <style>
+  body {
+    background-image: url('https://images.pexels.com/photos/1178994/pexels-photo-1178994.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed; /* Fix the background image */
+}
+
 .navbar {
 	background-color: #2eb14c; /* Green background */
 }
@@ -52,7 +62,7 @@
 	background: #fff;
 	padding: 20px;
 	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
 
 .search-container input[type="text"] {
@@ -75,6 +85,31 @@
 .search-container button:hover {
 	background-color: #0056b3;
 }
+
+
+.hotel-card {
+    width: 30%; /* Fixed width for three cards in a row */
+    height: 400px; /* Fixed height for the cards */
+    margin: 10px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.card {
+    height: 100%; /* Ensure the card takes full height of its container */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    height: 50%; /* Image takes up 50% of the card's height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.card-body {
+    flex: 1; /* Allow the card body to take up remaining space */
+    overflow-y: auto; /* Add scroll if content exceeds the height */
+    padding: 15px; /* Add padding for better spacing */
+}
 </style>
 
 
@@ -96,13 +131,28 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
+			<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
+						<span class="sr-only"></span>
 				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/index">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
 				</li>
+
+
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/exploreHotel">Explore
+						Hotels</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/showyourBooking">Your
+						Bookings</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/showyourPayments">Your
+						Payments</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
+
+
 			</ul>
 		</div>
 	</nav>
@@ -116,7 +166,7 @@
 			<button type="submit">Search</button>
 		</form>
 	</div> --%>
-
+<%-- 
 <div class="container">
 
         <div class="search-container">
@@ -146,7 +196,31 @@
                 </c:otherwise>
             </c:choose>
         </div>
+    </div> --%>
+    <div class="container">
+    <div class="search-container">
+        <form action="${pageContext.request.contextPath}/exploreHotel/searchHotels" method="get">
+            <input type="text" name="location" id="locationInput" placeholder="Enter location" required>
+            <button type="submit">Search</button>
+        </form>
     </div>
+ <div class="row mt-4" id="hotelsContainer">
+        <c:forEach var="hotel" items="${sessionScope.hotelsInLocation}">
+            <div class="col-md-4 hotel-card" data-location="${hotel.hotelLocation}">
+                <div class="card mb-4">
+                    <img src="${hotel.hotelImage}" class="card-img-top" alt="${hotel.hotelName}">
+                    <div class="card-body">
+                        <h5 class="card-title">${hotel.hotelName}</h5>
+                        <p class="card-text">Location: ${hotel.hotelLocation}</p>
+                        <a href="${pageContext.request.contextPath}/rooms/showexploreroom?hotelIds=${hotel.hotelId}" class="btn btn-success">View Rooms</a>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+    
+    
 
 
 
@@ -196,6 +270,21 @@
 		</div>
 	</footer>
 
+<script>
+function filterHotels() {
+    var input = document.getElementById('locationInput').value.toLowerCase();
+    var hotelCards = document.getElementsByClassName('hotel-card');
+
+    for (var i = 0; i < hotelCards.length; i++) {
+        var location = hotelCards[i].getAttribute('data-location').toLowerCase();
+        if (location.includes(input)) {
+            hotelCards[i].style.display = 'block';
+        } else {
+            hotelCards[i].style.display = 'none';
+        }
+    }
+}
+</script>
 
 
 

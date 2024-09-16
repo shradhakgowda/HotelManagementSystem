@@ -50,7 +50,7 @@ public class HotelServiceImpl implements HotelService {
 //        return hotelRepository.findByHotelLocation(location);
     
     public List<Hotel> getHotelsByLocation(String location) {
-        return hotelRepository.findByHotelLocationIgnoreCaseContaining(location);
+        return hotelRepository.findByHotelLocationIgnoreCaseStartingWith(location);
     }
     
 }

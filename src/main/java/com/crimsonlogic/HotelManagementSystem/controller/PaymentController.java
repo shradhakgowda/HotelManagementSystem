@@ -1,8 +1,14 @@
 package com.crimsonlogic.HotelManagementSystem.controller;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,18 +16,70 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crimsonlogic.HotelManagementSystem.entity.Bookings;
 import com.crimsonlogic.HotelManagementSystem.entity.Payment;
+import com.crimsonlogic.HotelManagementSystem.entity.Room;
+import com.crimsonlogic.HotelManagementSystem.entity.User;
 import com.crimsonlogic.HotelManagementSystem.exception.ResourceNotFoundException;
+import com.crimsonlogic.HotelManagementSystem.service.BookingsService;
 import com.crimsonlogic.HotelManagementSystem.service.PaymentService;
+import com.crimsonlogic.HotelManagementSystem.service.RoomService;
+import com.crimsonlogic.HotelManagementSystem.service.UserService;
 
-@RestController
-@RequestMapping("/api/payments")
+@Controller
+@RequestMapping("/payment")
 public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+    
+    @Autowired
+    private BookingsService bookingService;
+    
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    private RoomService roomService;
+
+    
+    @PostMapping("/processPayment")
+    public String processPayment(
+            @RequestParam("cardNumber") String cardNumber,
+            @RequestParam("cvv") String expiryDate,
+            @RequestParam("amount") BigDecimal amount,
+            @RequestParam("paymentMode") String paymentMode,
+            @RequestParam("bookingId") String bookingId,
+            @RequestParam("roomId") String roomId,
+            @RequestParam("userId") String userId,
+            HttpSession session,
+            Model model) {
+
+        // Fetch the booking, user, and room details
+        Bookings booking = bookingService.showBookingById(bookingId);
+        User user = userService.showUserById(userId);
+        Room room = roomService.showRoomById(roomId);
+        Payment payment = new Payment();
+        payment.setTotalPrice(amount);
+        payment.setPaymentDate(new Date());
+        payment.setPaymentDate(new Date());
+        payment.setBooking(booking);
+        payment.setUser(user);
+        payment.setRoom(room);
+
+        // Save the payment details
+        paymentService.registerPayment(payment);
+        System.err.println(payment);
+        // Add payment details to the model
+        model.addAttribute("payment", payment);
+
+        // Redirect to a confirmation page
+        return "paymentConfirmation";
+    }
+
 
     @PostMapping("/registerpayment")
     public Payment registerPayment(@RequestBody Payment payment) {
@@ -52,4 +110,7 @@ public class PaymentController {
 			e.printStackTrace();
 		}
     }
+    
+    
+    
 }

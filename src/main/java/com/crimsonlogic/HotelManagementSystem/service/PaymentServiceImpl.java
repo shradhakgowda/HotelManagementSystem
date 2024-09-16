@@ -41,6 +41,10 @@ public class PaymentServiceImpl implements PaymentService {
     public List<Payment> listAllPayments() {
         return paymentRepository.findAll();
     }
+    @Override
+    public List<Payment> listAllPaymentsByUserId(String userId) {
+        return paymentRepository.findByUser_UserId(userId);
+    }
 
     @Override
     public Payment showPaymentById(String paymentId) {
@@ -68,7 +72,6 @@ public class PaymentServiceImpl implements PaymentService {
         Bookings booking = bookingsRepository.findById(payment.getBooking().getBookingId()).orElseThrow(() -> new ResourceNotFoundException("Booking not found"));
         existingPayment.setBooking(booking);
 
-        existingPayment.setRoomPrice(payment.getRoomPrice());
         existingPayment.setTotalPrice(payment.getTotalPrice());
 
         paymentRepository.save(existingPayment);

@@ -13,4 +13,6 @@ public interface RoomService {
     public void updateRoom(String roomId, Room room) throws ResourceNotFoundException;
     //public List<Room> findRoomsByHotelName(String hotelName);
     public List<Room> findRoomsByHotelId(String hotelId) ;
+    public void updateRoomReservationStatus(String roomId, String status) throws ResourceNotFoundException;
+	
 }

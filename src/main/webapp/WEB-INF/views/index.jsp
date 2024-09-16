@@ -8,7 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel Management System</title>
+<link rel="icon" href=
+"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>
+Luxe Hotels</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -122,13 +125,12 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+				<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
 						<span class="sr-only">(current)</span>
 				</a></li>
-
-				<li class="nav-item"><a class="nav-link" href="#">Hotel</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
-				</li>
+<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/aboutUs">About Us
+						</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -148,7 +150,8 @@
 					src="https://th.bing.com/th/id/OIP.LhFUdr2oDYAhStCYJ5QcxwHaEi?rs=1&pid=ImgDetMain"
 					alt="First slide">
 				<div class="carousel-caption">
-					<h1>Welcome to Our Hotel</h1>
+					<h1>Welcome to Luxe Hotels</h1>
+					<p>Sustainable Luxury, Communal Comfort</p>
 
 					<form
 						action="${pageContext.request.contextPath}/users/registerservlet"
@@ -171,6 +174,7 @@
 					alt="Second slide">
 				<div class="carousel-caption">
 					<h1>Experience Luxury</h1>
+					<p>Sustainable Luxury, Communal Comfort</p>
 				 <form action="${pageContext.request.contextPath}/users/registerservlet" method="get" style="display: inline;">
     <button type="submit" class="btn btn-register btn-custom">Register</button>
 </form>
@@ -187,6 +191,7 @@
 					alt="Third slide">
 				<div class="carousel-caption">
 					<h1>Book Your Stay</h1>
+					<p>Sustainable Luxury, Communal Comfort</p>
 					<form
 						action="${pageContext.request.contextPath}/users/registerservlet"
 						method="get" style="display: inline;">

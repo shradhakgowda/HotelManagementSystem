@@ -1,5 +1,8 @@
 package com.crimsonlogic.HotelManagementSystem.service;
 
+import java.time.ZoneId;
+
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 
@@ -29,9 +32,31 @@ public class BookingsServiceImpl implements BookingsService {
     private RoomRepository roomRepository;
 
     @Override
-    public Bookings registerBooking(Bookings booking) {
-        return bookingsRepository.save(booking);
+    public void registerBooking(Bookings booking, String roomId, String userId) throws ResourceNotFoundException {
+        Room room = roomRepository.findById(roomId).orElseThrow(() -> new ResourceNotFoundException("Room not found"));
+
+        // Calculate the total price
+        long numberOfDays = ChronoUnit.DAYS.between(
+            booking.getBookingDateFrom().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+            booking.getBookingDateTo().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+        );
+        double totalPrice = numberOfDays * room.getRoomPrice();
+
+        // Set the total price in the booking
+        booking.setRoomTotalPrice(totalPrice);
+
+        // Save the booking
+        bookingsRepository.save(booking);
+
+        // Update room reservation status to "reserved"
+        room.setRoomReservation("reserved");
+        roomRepository.save(room);
     }
+
+    
+//    public Bookings registerBooking(Bookings booking) {
+//        return bookingsRepository.save(booking);
+//    }
 
     @Override
     public List<Bookings> listAllBookings() {
@@ -66,5 +91,28 @@ public class BookingsServiceImpl implements BookingsService {
 
         bookingsRepository.save(existingBooking);
     }
+
+
+    
+    
+    @Override
+    public List<Bookings> listAllBookingsByUserId(String userId) {
+        return bookingsRepository.findByUser_UserId(userId);
+    }
+    
+    @Override
+    public void cancelBookingAndUpdateRoomStatus(String bookingId) {
+        Bookings booking = bookingsRepository.findById(bookingId).orElseThrow(() -> new RuntimeException("Booking not found"));
+        Room room = booking.getRoom();
+        room.setRoomReservation("not_reserved");
+        roomRepository.save(room);
+        bookingsRepository.deleteById(bookingId);
+    }
+    
+    
+    
+
+    
+    
 }
 

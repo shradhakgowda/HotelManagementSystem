@@ -7,7 +7,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" href=
+"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>
+Luxe Hotels</title>
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 <!-- Bootstrap CSS -->
@@ -46,25 +49,34 @@ body {
 	color: #ffffff; /* Active link color */
 }
 
-<!--
-card style-->.container {
-	max-width: 1200px; /* Set a fixed width for the container */
-	margin: 0 auto; /* Center the container horizontally */
+/* 
+card style */
+.container {
+    max-width: 1200px; /* Set a fixed width for the container */
+    margin: 0 auto; /* Center the container horizontally */
 }
 
 .card {
-	width: 100%; /* Ensure the card takes full width of its column */
+    width: 100%; /* Ensure the card takes full width of its column */
+    height: 700px; /* Fixed height for the card */
+    display: flex;
+    flex-direction: column;
 }
-
-.col-md-4 {
-	flex: 0 0 50%; /* Make each column take up 50% of the container width */
-	max-width: 50%; /* Ensure column width does not exceed 50% */
+.card-img-top {
+    height: 50%; /* Image takes up 50% of the card's height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
 }
-
 .card-body {
-	max-height: 500px; /* Fixed height for the card body */
-	overflow-y: auto; /* Add scroll if content exceeds the height */
+    flex: 1; /* Allow the card body to take up remaining space */
+    overflow-y: auto; /* Add scroll if content exceeds the height */
+    padding: 15px; /* Add padding for better spacing */
 }
+
+.col-md-6 {
+    flex: 0 0 50%; /* Make each column take up 50% of the container width */
+    max-width: 50%; /* Ensure column width does not exceed 50% */
+}
+
 </style>
 </head>
 <body>
@@ -80,29 +92,42 @@ card style-->.container {
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+		
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
+						<span class="sr-only"></span>
+				</a></li>
+							<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/hotels/listallhotels">Hotels
+						
+				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/rooms/showroomdirect">
 						Add Rooms</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/rooms/listallrooms">List
 						Your Rooms</a></li>
+						
+										<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerBookings">Bookings		
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Payments	
+				</a></li>
 
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
+					
 
 			</ul>
 
 		</div>
 
-	</nav>
+	</nav><%-- 
 	<div class="container">
 		<!--<h2>Rooms Info</h2>-->
 		<div class="row">
 			<c:forEach var="room" items="${sessionScope.roomList}">
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<div class="card mb-4">
 						<img src="${room.roomImage}" class="card-img-top"
 							alt="${room.roomType}">
@@ -112,18 +137,39 @@ card style-->.container {
 							<p class="card-text">Description: ${room.roomDesc}</p>
 							<p class="card-text">Availability: ${room.roomAvailability}</p>
 							<p class="card-text">Room No: ${room.roomId}</p>
-
-							<!-- Edit Room Status Form -->
-							<form>
-								<button type="submit" class="btn btn-secondary">Update
-									Status</button>
-							</form>
+							   <!-- Edit Room Button -->
+                            <a href="${pageContext.request.contextPath}/rooms/showeditRoom?roomId=${room.roomId}" class="btn btn-secondary">Edit Room</a>
+                        </div>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
-	</div>
+	</div> --%>
+	
+	<!--<h2>Rooms Info</h2>-->
+	<h1 style="text-align: center; color: yellow;">Rooms Here</h1>
+<div class="container">
+    <div class="row">
+        <c:forEach var="room" items="${sessionScope.roomList}">
+            <div class="col-md-6"> <!-- Changed from col-md-4 to col-md-6 -->
+                <div class="card mb-4">
+                    <img src="${room.roomImage}" class="card-img-top" alt="${room.roomType}">
+                    <div class="card-body">
+                        <h5 class="card-title">Tyes Of Room :${room.roomType}</h5>
+                        <p class="card-text">Price Per Night Rs. ${room.roomPrice}</p>
+                        <p class="card-text">Room OverView :${room.roomDesc}</p>
+                        <p class="card-text">Room Capacity ${room.roomAvailability}</p>
+                        <p class="card-text">Room No: ${room.roomId}</p>
+                        <!-- Edit Room Button -->
+                        <a href="${pageContext.request.contextPath}/rooms/showeditRoom?roomId=${room.roomId}" class="btn btn-secondary">Edit Room</a>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+	
 
 </body>
 </html>

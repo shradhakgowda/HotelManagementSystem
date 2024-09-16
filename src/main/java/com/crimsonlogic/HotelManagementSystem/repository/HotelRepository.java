@@ -11,6 +11,7 @@ import com.crimsonlogic.HotelManagementSystem.entity.Hotel;
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel, String> {
 	List<Hotel> findByHotelLocationIgnoreCaseContaining(String location);
+    List<Hotel> findByHotelLocationIgnoreCaseStartingWith(String location);
 }
 
 

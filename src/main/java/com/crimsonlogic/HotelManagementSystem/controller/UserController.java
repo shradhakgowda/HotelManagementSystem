@@ -17,8 +17,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.crimsonlogic.HotelManagementSystem.entity.Bookings;
+import com.crimsonlogic.HotelManagementSystem.entity.Payment;
 import com.crimsonlogic.HotelManagementSystem.entity.User;
 import com.crimsonlogic.HotelManagementSystem.exception.ResourceNotFoundException;
+import com.crimsonlogic.HotelManagementSystem.service.BookingsService;
+import com.crimsonlogic.HotelManagementSystem.service.PaymentService;
 import com.crimsonlogic.HotelManagementSystem.service.UserService;
 
 @Controller
@@ -27,6 +32,14 @@ public class UserController {
 	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BookingsService bookService;
+	
+	
+	@Autowired
+	private PaymentService paymentService;
+	
+	
 
 	@GetMapping("/index")
 	public String showFormindex(Model theModel) {
@@ -45,6 +58,9 @@ public class UserController {
 		return userService.listAllUsers();
 	}
 
+	
+	
+	
 	@GetMapping("/showuserbyid/{userid}")
 	public User showUserById(@PathVariable("userid") String userId) {
 		return userService.showUserById(userId);
@@ -52,6 +68,36 @@ public class UserController {
 	
 	
 	
+	
+	@GetMapping("/exploreHotel")
+	public String showExploreHotelPage(Model theModel) {
+		LOG.debug("inside show explore hotel handler method");
+		return "exploreHotels";
+	}
+	
+	
+	
+	//show bookings for users
+	@GetMapping("/showyourBooking")
+	public String showYourBookingPage(Model theModel) {
+		LOG.debug("inside booking  handler method");
+		
+		
+		return "redirect:/booking/listAllBookingByUserId";
+	}
+		
+	
+	//show payments for users
+	
+	@GetMapping("/showyourPayments")
+	public String showYourPaymentPage(Model theModel,HttpSession session) {
+		   String userId2 = (String) session.getAttribute("userId");
+	        List<Payment> paymentDetails = paymentService.listAllPaymentsByUserId(userId2);
+	        System.out.println(paymentDetails);
+	        // Store payment details in the session
+	        session.setAttribute("paymentDetails", paymentDetails);
+		return "yourPayment";
+	}
 	
 
 //    showing registration page
@@ -91,6 +137,27 @@ public class UserController {
 	}
 	
 	
+	//redirecting to list of booking of managers
+	@GetMapping("/listManagerBookings")
+	public String showManagerBookingPage(Model theModel) {
+		LOG.debug("inside payment handler method");
+		return "redirect:/booking/listallbooking";
+	}
+	
+	
+	
+	//redirect to manager payments
+	@GetMapping("/listManagerPayment")
+	public String showManagerPaymentPage(Model theModel,HttpSession session) {
+		LOG.debug("inside payment handler method");
+		 List<Payment> paymentDetails1 = paymentService.listAllPayments();
+		 session.setAttribute("paymentDetails1", paymentDetails1);
+		return "managerPayment";
+	}
+	
+	
+	
+	
 
 	@PostMapping("/login")
 	public String loginUser(@RequestParam("userName") String userName,
@@ -103,11 +170,14 @@ public class UserController {
 	    if (user != null && user.getUserPassword().equals(userPassword)) {
 	        // User is authenticated; check role and redirect accordingly
 	        String role = user.getUserRole();
+	        
 	        if ("manager".equals(role)) {
 	            return "manager";
 	        } else if ("customer".equals(role)) {
 	        	session.setAttribute("userObject", user);
-	        	
+	        	String userId=user.getUserId();
+	        	System.out.println(userId);
+	        	session.setAttribute("userId", userId);
 	            return "customer";
 	        } else {
 	            // Unknown role
@@ -120,6 +190,19 @@ public class UserController {
 	        return "login";
 	    }
 	}
+	
+	
+//  showing login page
+	@GetMapping("/aboutUs")
+	public String showABoutUsPage(Model theModel) {
+		LOG.debug("inside show customer-form handler method");
+		User theUser = new User();
+		theModel.addAttribute("user", theUser);
+		return "aboutUs";
+	}
+	
+	
+	
 
 
 }

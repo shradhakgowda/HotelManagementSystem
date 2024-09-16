@@ -4,7 +4,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hotel Registration</title>
+<link rel="icon" href=
+"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>
+Luxe Hotels</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -25,9 +28,66 @@
         .form-control.is-invalid {
             border-color: #dc3545; /* Highlight invalid inputs */
         }
+        
+        .navbar {
+	background-color: #2eb14c;
+}
+
+.navbar-brand img {
+	height: 40px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #d4edda;
+}
+
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+	color: #ffffff;
+}
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#"> <img
+			src="https://img.freepik.com/premium-vector/hotel-logo-simple-illustration_434503-736.jpg?w=2000"
+			alt="Logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!-- manager slider -->
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
+						<span class="sr-only"></span>
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">About Us
+						
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/hotels/listallhotels">Hotels
+						
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerBookings">Bookings		
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Payments	
+				</a></li>
+						
+					<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
+			</ul>
+		</div>
+	</nav>
     <div class="container mt-5">
         <div class="card card-custom">
             <div class="card-header">

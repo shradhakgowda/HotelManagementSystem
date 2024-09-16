@@ -47,6 +47,7 @@ public class Room {
     @JoinColumn(name = "hotel_id", referencedColumnName = "hotel_id")
     private Hotel hotel;
 
-
+    @Column(name = "room_reservation")
+    private String roomReservation;
     // Getters and Setters
 }

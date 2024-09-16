@@ -44,14 +44,19 @@ public class RoomServiceImpl implements RoomService {
     public void deleteRoom(String roomId) {
         roomRepository.deleteById(roomId);
     }
+//    updating the room status when room is booked
+    @Override
+    public void updateRoomReservationStatus(String roomId, String status) throws ResourceNotFoundException {
+        Room existingRoom = roomRepository.findById(roomId).orElseThrow(() -> new ResourceNotFoundException("Room not found"));
+        existingRoom.setRoomReservation(status);
+        roomRepository.save(existingRoom);
+    }
+    
+    
 
     @Override
     public void updateRoom(String roomId, Room room) throws ResourceNotFoundException {
         Room existingRoom = roomRepository.findById(roomId).orElseThrow(() -> new ResourceNotFoundException("Room not found"));
-        
-        // Fetch and set the user reference
-//        User user = userRepository.findById(room.getUser().getUserId()).orElseThrow(() -> new ResourceNotFoundException("User not found"));
-//        existingRoom.setUser(user);
 
         existingRoom.setRoomImage(room.getRoomImage());
         existingRoom.setRoomPrice(room.getRoomPrice());
@@ -59,6 +64,7 @@ public class RoomServiceImpl implements RoomService {
         existingRoom.setRoomAvailability(room.getRoomAvailability());
         existingRoom.setRoomType(room.getRoomType());
         existingRoom.setHotel(room.getHotel());
+        existingRoom.setRoomReservation(room.getRoomReservation());
         
         roomRepository.save(existingRoom);
     }

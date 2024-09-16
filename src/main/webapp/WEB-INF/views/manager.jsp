@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" href=
+"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>
+Luxe Hotels</title>
 
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -45,7 +48,8 @@
 }
 
 <!--
-card css-->.card {
+card css-->
+.card {
 	width: 300px; /* Set the desired width */
 	height: 400px; /* Set the desired height */
 	overflow: hidden;
@@ -68,7 +72,8 @@ slider styling-->
 	max-width: 600px;
 	margin: auto;
 	overflow: hidden;
-	height: 30px; /* Fixed height */
+	padding-bottom: 20px;
+	 /* Fixed height */
 }
 
 .slides {
@@ -136,18 +141,22 @@ slider styling-->
 		<!-- manager slider -->
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
+							<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
+						<span class="sr-only"></span>
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Register</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-			<!--  	<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/hotels/hotel"> Add
-						Hotel</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/hotels/listallhotels">List
-						Hotels</a></li> -->
+<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">About Us
+						
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/hotels/listallhotels">Hotels
+						
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerBookings">Bookings		
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Payments	
+				</a></li>
 						
 					<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
@@ -164,28 +173,31 @@ slider styling-->
 				<img
 					src="https://th.bing.com/th/id/OIP.LhFUdr2oDYAhStCYJ5QcxwHaEi?rs=1&pid=ImgDetMain"
 					alt="Room Image 1">
-				<div class="heading">Welcome Manager</div>
+				<div class="heading">Welcome back Ready to add some sparkle to our hotels  </div>
+				
 				<div class="buttons">
 					<a href="${pageContext.request.contextPath}/hotels/hotel">
 						<button type="button">Add Hotels</button>
 					</a>
 						<a href="${pageContext.request.contextPath}/hotels/listallhotels">
-						<button type="button">Show Hotels</button>
+						<button type="button">Check Out Hotels</button>
 					</a>
 				</div>
 			</div>
+			<br>
+			<br>
 			<div class="slide">
 				<img
 					src="https://th.bing.com/th/id/OIP.znFPu4Y0iw0vQJzSAf9jdwHaE8?rs=1&pid=ImgDetMain"
 					alt="Room Image 2">
-				<div class="heading">Welcome Manager</div>
+				<div class="heading">Welcome back Ready to add some sparkle to our hotels  </div>
 				<div class="buttons">
 					<a href="${pageContext.request.contextPath}/hotels/hotel">
 						<button type="button">Add Hotels</button>
 					</a>
-					</a>
+					
 						<a href="${pageContext.request.contextPath}/hotels/listallhotels">
-						<button type="button">Show Hotels</button>
+						<button type="button">Check Out Hotels</button>
 					</a>
 				</div>
 			</div>
@@ -206,7 +218,7 @@ slider styling-->
 							<p class="card-text">${hotellist.hotelLocation}</p>
 							<a
 								href="${pageContext.request.contextPath}/rooms/showroom?hotelId=${hotellist.hotelId}"
-								class="btn btn-primary">ViewRooms</a>
+								class="btn btn-success">View Rooms</a>
 						</div>
 					</div>
 				</div>
