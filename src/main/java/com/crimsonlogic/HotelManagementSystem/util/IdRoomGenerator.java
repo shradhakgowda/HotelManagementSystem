@@ -6,7 +6,9 @@ import org.hibernate.id.IdentifierGenerator;
 
 import java.io.Serializable;
 import java.util.Random;
-
+//used to generate the room id
+//name :shradha
+//date :12th september 2024
 public class IdRoomGenerator implements IdentifierGenerator {
 	private static final int MIN_ID = 100;
 	private static final int MAX_ID = 999;

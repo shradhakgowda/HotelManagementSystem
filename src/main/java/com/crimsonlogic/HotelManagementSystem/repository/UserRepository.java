@@ -1,5 +1,7 @@
 package com.crimsonlogic.HotelManagementSystem.repository;
-
+//implement methods in user class
+//name :shradha
+//date :12th september 2024
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

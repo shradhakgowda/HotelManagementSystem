@@ -1,4 +1,7 @@
 package com.crimsonlogic.HotelManagementSystem.repository;
+//name :shradha;
+//date :12th september 2024
+//to load the user jpa repositories
 
 import java.util.List;
 

@@ -61,10 +61,8 @@ body {
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels<span class="sr-only"></span></a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/exploreHotel">Explore Hotels</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/showyourBooking">Your Bookings</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/showyourPayments">Your Payments</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/showyourPayments">Your Bookings</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
 		</ul>
 	</div>
@@ -99,7 +97,7 @@ body {
                 </div>
                 <div class="form-group">
                     <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv" name="cvv" required pattern="\d{3}" title="CVV must be 3 digits">
+                    <input type="password" class="form-control" id="cvv" name="cvv" required pattern="\d{3}" title="CVV must be 3 digits">
                 </div>
                 <div class="form-group">
                     <label for="amount">Amount</label>

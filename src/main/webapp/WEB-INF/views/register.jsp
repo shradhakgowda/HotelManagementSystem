@@ -5,10 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
- <link rel="icon" href=
-"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
-<title>
-Luxe Hotels</title>
+    <title>Luxe Hotels</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
@@ -33,50 +30,46 @@ Luxe Hotels</title>
             border-radius: 8px; /* Round the corners */
             background-color: rgba(255, 255, 255, 0.8); 
         }
-
+        
         body {
     background-image: url('https://images.pexels.com/photos/1178994/pexels-photo-1178994.jpeg?auto=compress&cs=tinysrgb&w=600');
     background-size: cover; /* Cover the entire page */
     background-repeat: no-repeat; /* Prevent image repetition */
     background-attachment: fixed; /* Fix the background image */
-}
-
-.navbar {
+    
+    .navbar {
 	background-color: #2eb14c; /* Green background */
 }
-
 .navbar-brand img {
 	height: 40px; /* Adjust the height as needed */
 }
-
 .navbar-light .navbar-nav .nav-link {
 	color: #ffffff; /* White text color */
 }
-
 .navbar-light .navbar-nav .nav-link:hover {
 	color: #d4edda; /* Light green color for hover effect */
 }
-
 .navbar-light .navbar-nav .nav-item.active .nav-link {
 	color: #ffffff; /* Active link color */
+}
 }
 /* Footer CSS */
 .footer {
 	/* Light grey background */
-	padding: 40px 0;
+	
 	background-color: rgba(0, 0, 0, 0);
 }
 
 .review-card {
 	margin-bottom: 20px;
 	
+	
 }
 
 .footer .container {
 	max-width: 1200px;
 	
-}
-        
+}       
     </style>
 </head>
 <body>
@@ -94,30 +87,29 @@ Luxe Hotels</title>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels
-						<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="">Luxe
+						Hotels <span class="sr-only"></span>
 				</a></li>
-							
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/aboutUs">About Us</a>
 				</li>
-				
-				
-				
+				<li class="nav-item"><a class="nav-link"
+					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
+
+
 			</ul>
 		</div>
 	</nav>
-
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
-                <h2>User Registration</h2>
+                <h2>Registration</h2>
             </div>
             <div class="card-body">
                 <!-- Spring Form Tag -->
                 <form:form action="/HotelManagementSystem/users/saveuser" method="post" modelAttribute="user" cssClass="form-horizontal" id="registrationForm">
-                    
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -185,53 +177,7 @@ Luxe Hotels</title>
         </div>
     </div>
 
-
-    
-    	<!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<h3 class="text-center">Customer Reviews</h3>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card review-card">
-						<div class="card-body">
-							<h5 class="card-title">Jane Doe</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Traveler</h6>
-							<p class="card-text">"The hotel experience was exceptional!
-								The staff was friendly and the room was spotless. I would highly
-								recommend this place to anyone looking for a comfortable stay."</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card review-card">
-						<div class="card-body">
-							<h5 class="card-title">John Smith</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Business Traveler</h6>
-							<p class="card-text">"Great location and excellent service.
-								The amenities were top-notch and the conference facilities were
-								very well-equipped. A perfect choice for business trips."</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card review-card">
-						<div class="card-body">
-							<h5 class="card-title">Emily Johnson</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Vacationer</h6>
-							<p class="card-text">"We had a wonderful stay at this hotel.
-								The pool and spa facilities were a highlight, and the view from
-								our room was stunning. Will definitely return on our next
-								visit."</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	
-	
-	    <!-- Bootstrap JS and dependencies -->
+    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -242,22 +188,19 @@ Luxe Hotels</title>
         var userName = document.getElementById("userName").value;
         var feedback = document.getElementById("userNameFeedback");
         var regex = /^[A-Za-z\s]{5,40}$/; // Regular expression to match only letters and spaces, with length between 10 and 40
-
         if (userName.trim() === "" || !regex.test(userName)) {
             feedback.style.display = "block";
-            feedback.innerText = "Username must be between 5 and 40 characters long and contain only letters and spaces.";
+            feedback.innerText = "Username must be between 10 and 40 characters long and contain only letters and spaces.";
             return false;
         } else {
             feedback.style.display = "none";
             return true;
         }
     }
-
     function validatePassword() {
         var password = document.getElementById("userPassword").value;
         var feedback = document.getElementById("passwordFeedback");
         var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/; // Regular expression for password validation
-
         if (password.trim() === "" || !regex.test(password)) {
             feedback.style.display = "block";
             feedback.innerText = "Password must be at least 8 characters long, contain one lowercase letter, one uppercase letter, and one number.";
@@ -267,8 +210,6 @@ Luxe Hotels</title>
             return true;
         }
     }
-
-
     function validateConfirmPassword() {
         var password = document.getElementById("userPassword").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
@@ -281,7 +222,6 @@ Luxe Hotels</title>
             return true;
         }
     }
-
     function validatePhoneNo() {
         var phoneNo = document.getElementById("userPhoneNo").value;
         var feedback = document.getElementById("phoneNoFeedback");
@@ -293,7 +233,6 @@ Luxe Hotels</title>
             return true;
         }
     }
-
     function validateIDProof() {
         var idProof = document.getElementById("userIDProof").value;
         var feedback = document.getElementById("idProofFeedback");
@@ -305,14 +244,10 @@ Luxe Hotels</title>
             return true;
         }
     }
-
     function validateEmail() {
         var email = document.getElementById("userEmail").value;
         var feedback = document.getElementById("emailFeedback");
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        var domainPattern = /\.com$/;
-
-        if (!emailPattern.test(email) || !domainPattern.test(email)) {
+        if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) {
             feedback.style.display = "block";
             return false;
         } else {
@@ -320,7 +255,6 @@ Luxe Hotels</title>
             return true;
         }
     }
-
     function validateAndSubmit() {
         var isValid = validateUserName() & validatePassword() & validateConfirmPassword() & validatePhoneNo() & validateIDProof() & validateEmail();
         if (isValid) {
@@ -328,5 +262,7 @@ Luxe Hotels</title>
         }
     }
     </script>
+      
+   
 </body>
 </html>

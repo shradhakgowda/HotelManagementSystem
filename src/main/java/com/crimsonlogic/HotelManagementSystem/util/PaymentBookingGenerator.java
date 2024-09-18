@@ -6,7 +6,9 @@ import org.hibernate.id.IdentifierGenerator;
 
 import java.io.Serializable;
 import java.util.Random;
-
+//used to generate the payment id
+//name :shradha
+//date :12th september 2024
 public class PaymentBookingGenerator implements IdentifierGenerator {
 	private static final int MIN_ID = 1000;
 	private static final int MAX_ID = 9999;

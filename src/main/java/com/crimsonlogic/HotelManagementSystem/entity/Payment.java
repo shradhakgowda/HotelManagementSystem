@@ -1,5 +1,8 @@
 package com.crimsonlogic.HotelManagementSystem.entity;
-
+/*entity class storing payments table attributes
+name:shradha
+date:13th september
+*/
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;

@@ -1,6 +1,9 @@
 package com.crimsonlogic.HotelManagementSystem.controller;
-
+//exploreing for user controller
+//date: 16th september 2024
+//name :shradha
 import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.crimsonlogic.HotelManagementSystem.entity.Hotel;
 import com.crimsonlogic.HotelManagementSystem.service.HotelService;
-//booking for user controller
+
 @Controller
 @RequestMapping("/exploreHotel")
 public class ExploreHotelController {

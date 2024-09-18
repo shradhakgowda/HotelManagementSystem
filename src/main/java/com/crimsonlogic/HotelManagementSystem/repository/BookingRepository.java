@@ -1,5 +1,7 @@
 package com.crimsonlogic.HotelManagementSystem.repository;
-
+//name :shradha;
+//date :12th september 2024
+//to load the booking jpa repositories
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -74,10 +74,8 @@ body {
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link" href="">Luxe Hotels<span class="sr-only"></span></a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/exploreHotel">Explore Hotels</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/showyourBooking">Your Bookings</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/showyourPayments">Your Payments</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/showyourPayments">Your Bookings</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
 		</ul>
 	</div>
@@ -87,7 +85,6 @@ body {
     <div class="thank-you-card card mx-auto">
         <div class="card-body">
             <h2 class="card-title text-success">Thank You for Your Booking!</h2>
-            <p class="card-text lead">Dear [User Name],</p>
             <p class="card-text">Thank you for choosing Luxe Hotels! We are excited to confirm your booking and look forward to hosting you. We hope you have a wonderful stay with us.</p>
             <p class="card-text mb-4">As a token of our appreciation, we are pleased to offer you a complimentary breakfast during your stay. Enjoy a delightful morning meal on us!</p>
             <p class="card-text">Would you like to book another room with us or explore more of our services?</p>

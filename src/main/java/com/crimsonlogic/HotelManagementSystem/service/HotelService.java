@@ -1,5 +1,7 @@
 package com.crimsonlogic.HotelManagementSystem.service;
-
+//interface for hotelServiceImpl class
+//name :shradha
+//date :12th september 2024
 import java.util.List;
 
 import com.crimsonlogic.HotelManagementSystem.entity.Hotel;

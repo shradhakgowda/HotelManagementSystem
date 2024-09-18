@@ -1,7 +1,9 @@
 package com.crimsonlogic.HotelManagementSystem.entity;
-
+/*entity class storing booking details
+name:shradha
+date:13th september
+*/
 import javax.persistence.Entity;
-
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -19,14 +21,13 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @Entity
-
 public class Bookings {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "custom-id-generator")
 	@GenericGenerator(name = "custom-id-generator", strategy = "com.crimsonlogic.HotelManagementSystem.util.IdBookingGenerator")
     @Column(name = "booking_id")
     private String bookingId;
-    
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "booking_date", nullable = false)
    private Date bookingDate;

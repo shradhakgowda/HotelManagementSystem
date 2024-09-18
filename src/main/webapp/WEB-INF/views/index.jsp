@@ -150,7 +150,7 @@ Luxe Hotels</title>
 					src="https://th.bing.com/th/id/OIP.LhFUdr2oDYAhStCYJ5QcxwHaEi?rs=1&pid=ImgDetMain"
 					alt="First slide">
 				<div class="carousel-caption">
-					<h1>Welcome to Luxe Hotels</h1>
+					<h1> Luxe Hotels</h1>
 					<p>Sustainable Luxury, Communal Comfort</p>
 
 					<form

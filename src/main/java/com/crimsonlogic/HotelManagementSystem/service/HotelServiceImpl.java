@@ -1,4 +1,7 @@
 package com.crimsonlogic.HotelManagementSystem.service;
+//used for the calculations of the hotel
+//name :shradha
+//date :12th september 2024
 import java.util.List;
 
 

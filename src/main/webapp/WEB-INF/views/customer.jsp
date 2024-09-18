@@ -119,22 +119,13 @@ Luxe Hotels</title>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
-				</li>
-
-
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/exploreHotel">Explore
 						Hotels</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/users/showyourBooking">Your
-						Bookings</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/users/showyourPayments">Your
-						Payments</a></li>
+					href="${pageContext.request.contextPath}/users/showyourPayments">Your Bookings</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
-
 
 			</ul>
 		</div>
@@ -142,7 +133,7 @@ Luxe Hotels</title>
 
 
 	<section class="hero-section">
-		<h1>Welcome to Some Hotel</h1>
+		<h1>Welcome to Luxe Hotel</h1>
 		<p>Check out our hotels and enjoy a wonderful stay.</p>
 		<a
 			href="${pageContext.request.contextPath}/exploreHotel/showExploreHotelPage"

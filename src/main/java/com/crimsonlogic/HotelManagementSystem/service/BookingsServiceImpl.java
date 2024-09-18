@@ -1,5 +1,7 @@
 package com.crimsonlogic.HotelManagementSystem.service;
-
+//used for the calculations of the user
+//name :shradha
+//date :15th september 2024
 import java.time.ZoneId;
 
 import java.time.temporal.ChronoUnit;
@@ -52,27 +54,25 @@ public class BookingsServiceImpl implements BookingsService {
         room.setRoomReservation("reserved");
         roomRepository.save(room);
     }
-
-    
-//    public Bookings registerBooking(Bookings booking) {
-//        return bookingsRepository.save(booking);
-//    }
-
+//list all bookings
     @Override
     public List<Bookings> listAllBookings() {
         return bookingsRepository.findAll();
     }
 
+    //show booking by id
     @Override
     public Bookings showBookingById(String bookingId) {
         return bookingsRepository.findById(bookingId).get();
     }
 
+    //delete booking by id not used
     @Override
     public void deleteBooking(String bookingId) {
         bookingsRepository.deleteById(bookingId);
     }
 
+    //update booking details
     @Override
     public void updateBooking(String bookingId, Bookings booking) throws ResourceNotFoundException {
         Bookings existingBooking = bookingsRepository.findById(bookingId).orElseThrow(() -> new ResourceNotFoundException("Booking not found"));

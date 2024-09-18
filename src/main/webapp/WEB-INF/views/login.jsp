@@ -99,7 +99,7 @@ Luxe Hotels</title>
 							
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/users/aboutUs">About Us</a>
 				</li>
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/registerservlet">Register	
 				</a></li>
@@ -112,7 +112,7 @@ Luxe Hotels</title>
 
     <div class="container">
         <div class="login-card">
-            <h2 class="text-center">Login</h2>
+            <h2 class="text-center" style="color: Black;">Login</h2>
             <!-- Spring Form Tag -->
             <form:form action="/HotelManagementSystem/users/login" method="post" modelAttribute="user" cssClass="form-horizontal" onsubmit="return validateForm()">
                 

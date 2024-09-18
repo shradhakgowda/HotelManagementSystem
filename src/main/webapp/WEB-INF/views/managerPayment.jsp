@@ -86,15 +86,10 @@ Luxe Hotels</title>
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">About Us
-						
-				</a></li>
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/hotels/listallhotels">Hotels
 						
 				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerBookings">Bookings		
-				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Payments	
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Booking	
 				</a></li>
 						
 					<li class="nav-item"><a class="nav-link"
@@ -103,24 +98,19 @@ Luxe Hotels</title>
 		</div>
 	</nav>
 	<div class="container mt-5">
-   <h2 class="text-center mb-4" style="color: yellow;">Payment Details</h2>
+   <h2 class="text-center mb-4" style="color: yellow;">Booking Details</h2>
 
     <div class="row">
         <c:forEach var="payment" items="${sessionScope.paymentDetails1}">
             <div class="col-md-4 mb-4">
                 <div class="card card-custom">
-                    <div class="card-header card-header-custom">
-                        Payment ID: <c:out value="${payment.paymentId}" />
-                    </div>
                     <div class="card-body card-body-custom">
                         <p class="card-text card-text-custom">
+                        <strong>Room No</strong> <c:out value="${payment.paymentDate}" /><br>
                             <strong>Payment Date:</strong> <c:out value="${payment.paymentDate}" /><br>
                             <strong>Total Price:</strong> <c:out value="${payment.totalPrice}" /><br>
                             <strong>Room ID:</strong> <c:out value="${payment.room.roomId}" /><br>
                             <strong>Booking ID:</strong> <c:out value="${payment.booking.bookingId}" />
-                            <strong>Payment ID:</strong> <c:out value="${payment.paymentId}" />
-                            
-                            
                         </p>
                     </div>
                 </div>

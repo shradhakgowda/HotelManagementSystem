@@ -9,20 +9,15 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<link rel="icon" href=
-"https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
-<title>
-Luxe Hotels</title>
+<link rel="icon"
+	href="https://th.bing.com/th/id/OIP.ASeikKXEBMru4liz-FdN8QHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.5&pid=1.7" />
+<title>Luxe Hotels</title>
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
 <style>
-  body {
-    background-image: url('https://images.pexels.com/photos/1178994/pexels-photo-1178994.jpeg?auto=compress&cs=tinysrgb&w=600');
-    background-size: cover; /* Cover the entire page */
-    background-repeat: no-repeat; /* Prevent image repetition */
-    background-attachment: fixed; /* Fix the background image */
-}
+
+
 .navbar {
 	background-color: #2eb14c; /* Green background */
 }
@@ -44,7 +39,7 @@ Luxe Hotels</title>
 }
 
 .card-custom {
-	border: 1px solid #28a745; /* Green border */
+	border: 3px solid; /* Green border */
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	background-color: #e9f5e9; /* Light green background */
@@ -90,19 +85,12 @@ Luxe Hotels</title>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
-				</li>
-
-
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/exploreHotel">Explore
 						Hotels</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/users/showyourBooking">Your
-						Bookings</a></li>
-				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/showyourPayments">Your
-						Payments</a></li>
+						Bookings</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
 
@@ -113,30 +101,28 @@ Luxe Hotels</title>
 
 
 	<div class="container mt-5">
-		   <h2 class="text-center mb-4" style="color: yellow;">Payment Details</h2>
+		<h2 class="text-center mb-4" style="color: black;">Booking
+			Details</h2>
 
 		<div class="row">
 			<c:forEach var="payment" items="${sessionScope.paymentDetails}">
 				<div class="col-md-4 mb-4">
 					<div class="card card-custom">
-						<div class="card-header card-header-custom">
-							Payment ID:
-							<c:out value="${payment.paymentId}" />
-						</div>
+
 						<div class="card-body card-body-custom">
 							<p class="card-text card-text-custom">
-								<strong>Payment Date:</strong>
-								<c:out value="${payment.paymentDate}" />
+								<strong>Booking ID:</strong>
+								<c:out value="${payment.booking.bookingId}" />
+								<br> <strong>Room No:</strong>
+								<c:out value="${payment.room.roomId}" />
 								<br> <strong>Total Price:</strong>
 								<c:out value="${payment.totalPrice}" />
-								<br> <strong>Room ID:</strong>
-								<c:out value="${payment.room.roomId}" />
-								<br> <strong>Booking ID:</strong>
-								<c:out value="${payment.booking.bookingId}" />
-								<strong>Payment ID:</strong>
-								<c:out value="${payment.paymentId}" />
-
-
+								<br> <strong>Stay From :</strong>
+								<c:out value="${payment.booking.bookingDateFrom}" />
+								<br> <strong>Stay to :</strong>
+								<c:out value="${payment.booking.bookingDateTo}" />
+								<br> <strong>Location :</strong>
+								<c:out value="${payment.room.hotel.hotelLocation}" />
 							</p>
 						</div>
 					</div>

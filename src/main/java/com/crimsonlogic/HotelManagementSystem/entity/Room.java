@@ -1,5 +1,9 @@
 package com.crimsonlogic.HotelManagementSystem.entity;
-
+/*entity class storing
+room  details and the room attributes
+name:shradha
+date:13th september
+*/
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -38,10 +42,6 @@ public class Room {
 
     @Column(name = "room_type")
     private String roomType;
-
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-//    private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_id", referencedColumnName = "hotel_id")

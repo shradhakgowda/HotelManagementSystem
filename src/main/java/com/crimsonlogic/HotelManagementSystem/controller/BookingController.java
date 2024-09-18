@@ -2,6 +2,7 @@ package com.crimsonlogic.HotelManagementSystem.controller;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.crimsonlogic.HotelManagementSystem.entity.Bookings;
-import com.crimsonlogic.HotelManagementSystem.entity.Hotel;
-import com.crimsonlogic.HotelManagementSystem.entity.Payment;
 import com.crimsonlogic.HotelManagementSystem.entity.Room;
 import com.crimsonlogic.HotelManagementSystem.entity.User;
 import com.crimsonlogic.HotelManagementSystem.exception.ResourceNotFoundException;
@@ -28,6 +27,9 @@ import com.crimsonlogic.HotelManagementSystem.service.PaymentService;
 import com.crimsonlogic.HotelManagementSystem.service.RoomService;
 import com.crimsonlogic.HotelManagementSystem.service.UserService;
 
+/*controller:used for booking 
+ * date:16th september
+ */
 @Controller
 @RequestMapping("/booking")
 public class BookingController {

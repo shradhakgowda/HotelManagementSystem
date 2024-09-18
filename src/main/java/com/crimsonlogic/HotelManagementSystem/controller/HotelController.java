@@ -1,9 +1,8 @@
 package com.crimsonlogic.HotelManagementSystem.controller;
+//hotels for admin controller
+//date: 14th september 2024
+//name :shradha
 import java.util.List;
-
-
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.crimsonlogic.HotelManagementSystem.entity.Hotel;
-import com.crimsonlogic.HotelManagementSystem.entity.User;
 import com.crimsonlogic.HotelManagementSystem.exception.ResourceNotFoundException;
 import com.crimsonlogic.HotelManagementSystem.service.HotelService;
+
 @Controller
 @RequestMapping("/hotels")
 public class HotelController {
@@ -46,6 +43,7 @@ public class HotelController {
         return "redirect:/hotels/listallhotels";
     }
 
+    //listing all the hotels for manager
     @GetMapping("/listallhotels")
     public String listAllHotels(Model model) {
     	List<Hotel> hotelList = hotelService.listAllHotels();
@@ -53,17 +51,18 @@ public class HotelController {
     	   return "manager";
         
     }
-
+    
+//listing the hotels by id not used 
     @GetMapping("/showhotelbyid/{hotelid}")
     public Hotel showHotelById(@PathVariable("hotelid") String hotelId) {
         return hotelService.showHotelById(hotelId);
     }
-
+//deleting the hotel not used for now
     @DeleteMapping("/deletehotel/{hotelid}")
     public void deleteHotel(@PathVariable("hotelid") String hotelId) {
         hotelService.deleteHotel(hotelId);
     }
-
+//updating the hotel details not 
     @PutMapping("/updatehotel/{hotelid}")
     public void updateHotel(@PathVariable("hotelid") String hotelId, @RequestBody Hotel hotel) throws ResourceNotFoundException {
         hotelService.updateHotel(hotelId, hotel);

@@ -147,15 +147,11 @@ slider styling-->
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">About Us
-						
-				</a></li>
+
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/hotels/listallhotels">Hotels
 						
 				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerBookings">Bookings		
-				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Payments	
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Bookings	
 				</a></li>
 						
 					<li class="nav-item"><a class="nav-link"

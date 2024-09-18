@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
-
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -38,7 +37,7 @@ Luxe Hotels</title>
 .room-card {
             width: 30%; /* Adjusted width for two cards in a row */
             height: 600px; /* Fixed height for the cards */
-            margin-top: 10px;
+            margin-top: 20px;
             
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
@@ -48,13 +47,14 @@ Luxe Hotels</title>
             flex-direction: column;
         }
         .card-img-top {
-            height: 50%; /* Image takes up 50% of the card's height */
-            object-fit: cover; /* Ensure the image covers the area without distortion */
+            height: 50%;/* Image takes up 50% of the card's height */
+            object-fit: cover;
+            padding:10px; /* Ensure the image covers the area without distortion */
         }
         .card-body {
             flex: 1; /* Allow the card body to take up remaining space */
             overflow-y: auto; /* Add scroll if content exceeds the height */
-            padding: 15px; /* Add padding for better spacing */
+            padding-bottom: 35px; /* Add padding for better spacing */
         }
 
 
@@ -89,19 +89,14 @@ Luxe Hotels</title>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a>
-				</li>
 
 
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/exploreHotel">Explore
 						Hotels</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="${pageContext.request.contextPath}/users/showyourBooking">Your
-						Bookings</a></li>
-				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/showyourPayments">Your
-						Payments</a></li>
+						Bookings</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="${pageContext.request.contextPath}/users/index">LogOut</a></li>
 
@@ -110,7 +105,7 @@ Luxe Hotels</title>
 		</div>
 	</nav>
 
-	<h2 class="text-center mb-4" style="color: yellow;">Room Information</h2>
+	<h2 class="text-center mb-4" style="color: black;">Room</h2>
 <div class="row mt-4" id="roomsContainer">
         <c:forEach var="room" items="${roomBookList}">
             <div class="col-md-6 room-card">
@@ -118,9 +113,9 @@ Luxe Hotels</title>
                     <img src="${room.roomImage}" class="card-img-top" alt="${room.roomType}">
                     <div class="card-body">
                         <h5 class="card-title">${room.roomType}</h5>
-                        <p class="card-text">Price: ${room.roomPrice}</p>
+                        <p class="card-text">Price per day: ${room.roomPrice}</p>
                         <p class="card-text">Description: ${room.roomDesc}</p>
-                        <p class="card-text">Availability: ${room.roomAvailability}</p>
+                        <p class="card-text">Capacity: ${room.roomAvailability}</p>
                         <p class="card-text">Reservation: ${room.roomReservation}</p>
                         <c:choose>
                             <c:when test="${room.roomReservation eq 'reserved'}">

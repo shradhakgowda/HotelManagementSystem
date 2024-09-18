@@ -67,15 +67,10 @@ Luxe Hotels</title>
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/index">About Us
-						
-				</a></li>
 				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/hotels/listallhotels">Hotels
 						
 				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerBookings">Bookings		
-				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Payments	
+				<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/users/listManagerPayment">Bookings	
 				</a></li>
 						
 					<li class="nav-item"><a class="nav-link"
@@ -88,7 +83,7 @@ Luxe Hotels</title>
     <div class="container">
         <div class="card">
             <div class="card-header">
-            <h2 class="text-center mb-4" style="color: yellow;">Edit Room Details</h2>
+            <h2 class="text-center mb-4" style="color: yellow;">Update Room Details</h2>
                 
             </div>
             <div class="card-body">

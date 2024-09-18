@@ -1,6 +1,9 @@
 package com.crimsonlogic.HotelManagementSystem.controller;
-
+//used for payment operations
+//date: 14th september 2024
+//shradha
 import java.math.BigDecimal;
+
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +20,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.crimsonlogic.HotelManagementSystem.entity.Bookings;
 import com.crimsonlogic.HotelManagementSystem.entity.Payment;
 import com.crimsonlogic.HotelManagementSystem.entity.Room;
@@ -45,7 +46,7 @@ public class PaymentController {
     @Autowired
     private RoomService roomService;
 
-    
+    //fetching the payment details
     @PostMapping("/processPayment")
     public String processPayment(
             @RequestParam("cardNumber") String cardNumber,
@@ -80,27 +81,30 @@ public class PaymentController {
         return "paymentConfirmation";
     }
 
-
+//saving the paments not used 
     @PostMapping("/registerpayment")
     public Payment registerPayment(@RequestBody Payment payment) {
         return paymentService.registerPayment(payment);
     }
-
+//listing all the payments
     @GetMapping("/listallpayments")
     public List<Payment> listAllPayments() {
         return paymentService.listAllPayments();
     }
 
+    
+    //showing  the payments based on payment id not used 
     @GetMapping("/showpaymentbyid/{paymentid}")
     public Payment showPaymentById(@PathVariable("paymentid") String paymentId) {
         return paymentService.showPaymentById(paymentId);
     }
-
+//deleting payments for future use
     @DeleteMapping("/deletepayment/{paymentid}")
     public void deletePayment(@PathVariable("paymentid") String paymentId) {
         paymentService.deletePayment(paymentId);
     }
 
+    //update the payment details not used currently
     @PutMapping("/updatepayment/{paymentid}")
     public void updatePayment(@PathVariable("paymentid") String paymentId, @RequestBody Payment payment) {
         try {

@@ -1,8 +1,8 @@
 package com.crimsonlogic.HotelManagementSystem.service;
-
+//used for the calculations of the user
+//name :shradha
+//date :12th september 2024
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.crimsonlogic.HotelManagementSystem.entity.User;
 import com.crimsonlogic.HotelManagementSystem.exception.ResourceNotFoundException;
 import com.crimsonlogic.HotelManagementSystem.repository.UserRepository;
-import com.crimsonlogic.HotelManagementSystem.service.UserService;
 
 @Service
 @Transactional
